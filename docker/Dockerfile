@@ -1,7 +1,7 @@
 FROM alpine:3.18.4 as base
 
 WORKDIR /app
-RUN apk add --no-cache tzdata eudev tini nodejs
+RUN apk add --no-cache tzdata eudev tini nodejs file
 
 # Dependencies and build
 FROM base as dependencies_and_build
