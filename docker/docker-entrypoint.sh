@@ -23,12 +23,12 @@ case `file -b -i "${DATABASE:?}"` in
         DATABASE_BACKUP="${DATABASE:?}.`date -Isec`~"
         if mv "${DATABASE:?}" "${DATABASE_BACKUP:?}"
         then
-            echo "WARNING: Corrupt database has renamed to ${DATABASE_BACKUP:-N/A}..." 1>&2
+            echo "WARNING: Corrupt database has renamed to '${DATABASE_BACKUP:-N/A}'..." 1>&2
         else
             echo "WARNING: Removing corrupt database..." 1>&2
             rm "${DATABASE:?}"
         fi
-        if : > "${DATABASE:?}"
+        if ( : > "${DATABASE:?}" )
         then
             echo "Starting with empty database..." 
         else
