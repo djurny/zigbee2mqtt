@@ -26,7 +26,7 @@ case `file -b -i "${DATABASE:?}"` in
             echo "WARNING: Corrupt database has renamed to '${DATABASE_BACKUP:-N/A}'..." 1>&2
         else
             echo "WARNING: Removing corrupt database..." 1>&2
-            rm "${DATABASE:?}"
+            rm "${DATABASE:?}" || true
         fi
         if ( : > "${DATABASE:?}" )
         then
