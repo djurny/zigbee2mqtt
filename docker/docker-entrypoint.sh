@@ -34,7 +34,7 @@ case `file -b -i "${DATABASE:?}"` in
         else
             echo "WARNING: Could not create empty database!" 1>&2
         fi
-    ;;
+        ;;
 esac
 
 exec "$@"
